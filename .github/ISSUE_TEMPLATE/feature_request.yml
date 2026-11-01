@@ -1,0 +1,34 @@
+name: Feature request
+description: Propose a focused improvement to RepoAura.
+title: "[Feature]: "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: What user need or recurring problem does this address?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the behavior you want and where it belongs.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives and trade-offs
+      description: What alternatives did you consider? Include context/token, safety, or maintenance trade-offs when relevant.
+    validations:
+      required: false
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked that this is not already covered by an existing issue or prompt section.
+          required: true
+        - label: I removed credentials, private repository content, and personal data.
+          required: true

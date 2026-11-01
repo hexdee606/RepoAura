@@ -1,0 +1,56 @@
+name: Bug report
+description: Report a reproducible problem with the RepoAura prompt or its documentation.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: "For security-sensitive reports, do not use this form. Follow the private reporting instructions in SECURITY.md at the repository root."
+  - type: input
+    id: prompt-version
+    attributes:
+      label: RepoAura prompt version
+      description: Find the version near the top of the prompt file.
+      placeholder: "5.1"
+    validations:
+      required: true
+  - type: input
+    id: host-version
+    attributes:
+      label: VS Code and Copilot version
+      description: Include versions only when relevant to the problem.
+      placeholder: "VS Code version; Copilot Chat version if known"
+    validations:
+      required: false
+  - type: dropdown
+    id: harness
+    attributes:
+      label: Harness
+      options:
+        - Local
+        - Copilot shared
+        - Other
+        - Unknown
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and observed behavior
+      description: Describe what you expected and what actually happened.
+      placeholder: Keep the report concise and remove secrets or private repository content.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Provide the smallest safe set of steps that reproduces the issue.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Relevant prompt section or sanitized evidence
+      description: Link a heading or provide redacted output. Do not include credentials or private source.
+    validations:
+      required: false

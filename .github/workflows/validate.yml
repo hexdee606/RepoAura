@@ -1,0 +1,31 @@
+name: Repository checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: repository-checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Tests, documentation lint, and secret-pattern scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Run validator tests
+        run: python3 -m unittest discover --start-directory tests --verbose
+
+      - name: Lint repository documentation and prompt metadata
+        run: python3 tools/validate_repo.py --lint
+
+      - name: Scan tracked files for selected secret patterns
+        run: python3 tools/validate_repo.py --security
