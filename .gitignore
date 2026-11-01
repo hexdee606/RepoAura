@@ -1,0 +1,12 @@
+# Python validation artifacts
+__pycache__/
+*.py[cod]
+
+# Local virtual environments
+.venv/
+venv/
+
+# Local environment variables and credentials
+.env
+.env.*
+!.env.example
